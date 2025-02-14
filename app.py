@@ -9,5 +9,6 @@ def home():
     return {"message": "Human Activity Recognition API is running!"}
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if PORT is not set
+    port = int(os.getenv("PORT", 8000))  # Get PORT from Render, default to 8000
+    print(f"Starting server on port {port}")  # Debugging log
     uvicorn.run(app, host="0.0.0.0", port=port)
