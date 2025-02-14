@@ -7,8 +7,12 @@ import cv2
 
 app = FastAPI()
 
+# Get absolute path of the model
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model", "final_model.keras")
+
 # Load the trained model
-model = tf.keras.models.load_model("model/final_model.keras")
+model = tf.keras.models.load_model(MODEL_PATH)
 
 @app.get("/")
 def home():
